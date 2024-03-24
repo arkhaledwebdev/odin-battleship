@@ -27,6 +27,14 @@ test("test if the receive attack function works correctly when attack is hit and
   gameBoard.receiveAttack([1, 0]);
   gameBoard.receiveAttack([2, 0]);
   gameBoard.receiveAttack([3, 0]);
+  gameBoard.receiveAttack([6, 6]);
+  gameBoard.receiveAttack([7, 7]);
+  expect(gameBoard.board[66].isMissed).toEqual(true);
+  expect(gameBoard.board[77].isMissed).toEqual(true);
+  expect(gameBoard.board[0].isHit).toEqual(true);
+  expect(gameBoard.board[1].isHit).toEqual(true);
+  expect(gameBoard.board[2].isHit).toEqual(true);
+  expect(gameBoard.board[3].isHit).toEqual(true);
   expect(gameBoard.board[0].ship.numberOfHits).toEqual(4);
   expect(gameBoard.board[0].ship.isSunk).toEqual(true);
 });
@@ -34,9 +42,13 @@ test("test if the receive attack function works correctly when attack is hit and
 test("test if the receive attack function works correctly when  attack is missed", () => {
   const gameBoard = new GameBoard();
   const boat = new Ship("boat", 2);
-  gameBoard.placeShip(boat, true, [2, 2]);
-  gameBoard.receiveAttack([0, 0]);
-  gameBoard.receiveAttack([8, 8]);
-  expect(gameBoard.board[0].isMissed).toEqual(true);
-  expect(gameBoard.board[88].isMissed).toEqual(true);
+  gameBoard.placeShip(boat, true, [9, 8]);
+  gameBoard.receiveAttack([9, 8]);
+  gameBoard.receiveAttack([9, 9]);
+  gameBoard.receiveAttack([6, 1]);
+  gameBoard.receiveAttack([7, 5]);
+  expect(gameBoard.board[89].isHit).toEqual(true);
+  expect(gameBoard.board[99].isHit).toEqual(true);
+  expect(gameBoard.board[16].isMissed).toEqual(true);
+  expect(gameBoard.board[57].isMissed).toEqual(true);
 });

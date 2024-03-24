@@ -1,7 +1,9 @@
 class GameNode {
-  constructor(x, y, ship = null, isMissed = false) {
+  constructor(index, x, y, ship = null, isHit = false, isMissed = false) {
+    this.index = index;
     this.position = [x, y];
     this.ship = ship;
+    this.isHit = isHit;
     this.isMissed = isMissed;
   }
 }

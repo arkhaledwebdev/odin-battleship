@@ -18,12 +18,17 @@ class Player {
     const y = position[1];
     const index = x + y * 10;
     this.attacks.push(index);
-    gameboard[index].receiveAttack(position);
+    gameboard.receiveAttack(position);
   }
 
-  //   attackWithAI(){
-
-  //   }
+  attackWithAI(gameboard) {
+    const emptyNodes = gameboard.getEmptyNodes();
+    const randomNodeIndex = Math.floor(Math.random() * emptyNodes.length);
+    const indexNumber = emptyNodes[randomNodeIndex].index;
+    const attackPosition = emptyNodes[randomNodeIndex].position;
+    this.attacks.push(indexNumber);
+    gameboard.receiveAttack(attackPosition);
+  }
 }
 
 module.exports = Player;

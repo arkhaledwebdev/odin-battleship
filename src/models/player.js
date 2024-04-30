@@ -16,19 +16,24 @@ class Player {
   attack(position, gameboard) {
     const x = position[0];
     const y = position[1];
-    const index = x + y * 10;
+    const index = x * 10 + y;
     this.attacks.push(index);
     gameboard.receiveAttack(position);
   }
 
-  attackWithAI(gameboard) {
-    const emptyNodes = gameboard.getEmptyNodes();
-    const randomNodeIndex = Math.floor(Math.random() * emptyNodes.length);
-    const indexNumber = emptyNodes[randomNodeIndex].index;
-    const attackPosition = emptyNodes[randomNodeIndex].position;
-    this.attacks.push(indexNumber);
-    gameboard.receiveAttack(attackPosition);
-  }
+  // attackWithAI(gameboard) {
+
+  //   // const emptyNodes = gameboard.getEmptyNodes();
+  //   // let randomNodeIndex = Math.floor(Math.random() * emptyNodes.length);
+  //   // let attackNode = emptyNodes[randomNodeIndex];
+  //   // while (attackNode.isHit === true || attackNode.isMissed === true) {
+  //   //   randomNodeIndex = Math.floor(Math.random() * emptyNodes.length);
+  //   //   attackNode = emptyNodes[randomNodeIndex];
+  //   // }
+  //   // const attackPosition = attackNode.position;
+  //   // this.attacks.push(attackNode.index);
+  //   // gameboard.receiveAttack(attackPosition);
+  // }
 }
 
 module.exports = Player;

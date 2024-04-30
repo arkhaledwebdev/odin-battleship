@@ -10,7 +10,7 @@ class GameBoard {
   initializeBoard() {
     for (let i = 0; i < this.size; i += 1) {
       for (let j = 0; j < this.size; j += 1) {
-        const index = i + j * this.size;
+        const index = i * this.size + j;
         this.board.push(new GameNode(index, i, j));
       }
     }
@@ -22,14 +22,14 @@ class GameBoard {
 
     if (!isVertical) {
       for (let i = 0; i < ship.length; i += 1) {
-        const horizontalIndex = x + i + y * this.size;
+        const horizontalIndex = x * this.size + i + y;
         if (horizontalIndex >= 0 && horizontalIndex < this.size * this.size) {
           this.board[horizontalIndex].ship = ship;
         }
       }
     } else {
       for (let j = 0; j < ship.length; j += 1) {
-        const verticalIndex = x + (y + j) * this.size;
+        const verticalIndex = (x + j) * this.size + y;
         if (verticalIndex >= 0 && verticalIndex < this.size * this.size) {
           this.board[verticalIndex].ship = ship;
         }
@@ -41,7 +41,7 @@ class GameBoard {
     const x = position[0];
     const y = position[1];
 
-    const index = x + y * this.size;
+    const index = x * this.size + y;
 
     const isShipHit = this.board[index].ship !== null;
 
@@ -57,7 +57,7 @@ class GameBoard {
     const emptyNodes = [];
     for (let i = 0; i < this.board.length; i += 1) {
       if (this.board[i].isMissed === false && this.board[i].isHit === false) {
-        emptyNodes.push(this.board[i]);
+        emptyNodes.push(this.board[i].index);
       }
     }
     return emptyNodes;

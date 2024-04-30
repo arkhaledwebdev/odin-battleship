@@ -21,6 +21,26 @@ class Player {
     gameboard.receiveAttack(position);
   }
 
+  getRandomAttackIndex() {
+    const attacksDone = this.attacks;
+    let attackIndex;
+
+    do {
+      attackIndex = Math.floor(Math.random() * 100);
+    } while (attacksDone.includes(attackIndex));
+
+    return attackIndex;
+  }
+
+  attackWithAi(gameBoard) {
+    const randomIndex = this.getRandomAttackIndex();
+    const xPosition = randomIndex % 10;
+    const yPosition = Math.floor(randomIndex / 10);
+    const attackPosition = [xPosition, yPosition];
+    this.attacks.push(randomIndex);
+    gameBoard.receiveAttack(attackPosition);
+  }
+
   // attackWithAI(gameboard) {
 
   //   // const emptyNodes = gameboard.getEmptyNodes();

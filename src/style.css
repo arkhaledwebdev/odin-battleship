@@ -158,18 +158,44 @@ h1{
   background-color: var(--surface-color);
 }
 
-.player-selected-node{
+.player-missed-node{
   height: 25px;
   width: 25px;
-  background-color: var(--accent-color);
+  background-color: green;
   border-radius: 50%;
   display: inline-block;
 }
+.player-hit-node{
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+.player-hit-node:after,
+.computer-hit-node:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "\D7";
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
+  color: red;
+  text-align: center;
+}
 
-.computer-selected-node{
+.computer-missed-node{
   height: 25px;
   width: 25px;
-  background-color: var(--accent-color);
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+.computer-hit-node{
+  height: 25px;
+  width: 25px;
+  background-color:red;
   border-radius: 50%;
   display: inline-block;
 }

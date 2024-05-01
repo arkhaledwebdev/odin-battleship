@@ -40,20 +40,6 @@ class Player {
     this.attacks.push(randomIndex);
     gameBoard.receiveAttack(attackPosition);
   }
-
-  // attackWithAI(gameboard) {
-
-  //   // const emptyNodes = gameboard.getEmptyNodes();
-  //   // let randomNodeIndex = Math.floor(Math.random() * emptyNodes.length);
-  //   // let attackNode = emptyNodes[randomNodeIndex];
-  //   // while (attackNode.isHit === true || attackNode.isMissed === true) {
-  //   //   randomNodeIndex = Math.floor(Math.random() * emptyNodes.length);
-  //   //   attackNode = emptyNodes[randomNodeIndex];
-  //   // }
-  //   // const attackPosition = attackNode.position;
-  //   // this.attacks.push(attackNode.index);
-  //   // gameboard.receiveAttack(attackPosition);
-  // }
 }
 
 module.exports = Player;

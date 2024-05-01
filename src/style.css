@@ -85,12 +85,12 @@ textarea:not([rows]) {
 /* Root Element variables */
 
 :root {
-  --background-color: #fbf2f3;
+  --background-color: #FDFAFE;
   --background-color-lite: #f4fbfb;
-  --surface-color: #f6dee0;
-  --main-color: #ca4653;
-  --secondary-color: #e18992;
-  --accent-color: #dc6773;
+  --surface-color: #F5E3FB;
+  --main-color: #ab34d2;
+  --secondary-color: #D288EA;
+  --accent-color: #d288ea;
 }
 
 /* Set core body defaults */
@@ -99,9 +99,87 @@ body {
   line-height: 1.5;
   background-color: var(--background-color);
   margin: 0;
-  padding: 0;
+  padding: 16px;
   width: 100vw;
   height: 100vh;
   font-size: 16px;
   font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+
 }
+
+#main-content{
+  display: flex;
+  flex-direction: row;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+h1{
+  text-align: center;
+  color: var(--main-color);
+}
+
+.player-section{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: x-large;
+  text-align: center;
+  font-weight: 700;
+}
+
+.computer-section {
+  flex:1;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-board {
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(10,50px);
+  grid-template-rows: repeat(10,50px);
+}
+
+.board-node{
+  border: 1px solid black;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-node:hover{
+  background-color: var(--surface-color);
+}
+
+.player-selected-node{
+  height: 25px;
+  width: 25px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.computer-selected-node{
+  height: 25px;
+  width: 25px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#start-button{
+  background-color: var(--main-color);
+  border-radius: 8px;
+  font-size: larger;
+  color: white;
+  margin: 8px 40vw;
+  cursor: pointer;
+}
+

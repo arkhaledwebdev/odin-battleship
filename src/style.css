@@ -146,12 +146,16 @@ h1{
   grid-template-rows: repeat(10,50px);
 }
 
-.board-node{
+.player-board-node,.computer-board-node{
   border: 1px solid black;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.has-ship{
+  background-color: var(--accent-color);
 }
 
 .board-node:hover{

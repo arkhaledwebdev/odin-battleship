@@ -1,28 +1,21 @@
-import Player from "../models/player";
+import { initComputer, initPlayer } from "../controllers/player_controller";
 
 export default function createBoard() {
   const playerBoard = document.getElementById("player-board");
   const computerBoard = document.getElementById("computer-board");
-  const player = new Player("PLAYER");
-  const computer = new Player("COMPUTER");
-  player.gameboard.placeShip(player.carrier, false, [0, 0]);
-  player.gameboard.placeShip(player.battleship, false, [2, 0]);
-  player.gameboard.placeShip(player.destroyer, false, [4, 0]);
-  player.gameboard.placeShip(player.submarine, false, [6, 0]);
-  player.gameboard.placeShip(player.boat, false, [8, 0]);
-  computer.gameboard.placeShip(computer.carrier, false, [0, 0]);
-  computer.gameboard.placeShip(computer.battleship, false, [2, 0]);
-  computer.gameboard.placeShip(computer.destroyer, false, [4, 0]);
-  computer.gameboard.placeShip(computer.submarine, false, [6, 0]);
-  computer.gameboard.placeShip(computer.boat, false, [8, 0]);
+  const player = initPlayer();
+  const computer = initComputer();
 
   for (let i = 0; i < 100; i += 1) {
     const playerNode = document.createElement("div");
     const computerNode = document.createElement("div");
-    playerNode.classList.add("board-node");
+    playerNode.classList.add("player-board-node");
     playerNode.dataset.index = i;
-    computerNode.classList.add("board-node");
+    computerNode.classList.add("computer-board-node");
     computerNode.dataset.index = i;
+    if (player.gameboard.board[i].ship !== null) {
+      playerNode.classList.add("has-ship");
+    }
     playerNode.addEventListener("click", () => {
       if (!playerNode.classList.contains("selected")) {
         playerNode.classList.add("selected");

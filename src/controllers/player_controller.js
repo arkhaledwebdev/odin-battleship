@@ -10,23 +10,23 @@ function initPlayer() {
 
   player.gameboard.placeShip(player.carrier, false, [
     shipPositions[0],
-    generateRandomNumber(),
+    generateRandomNumber(6),
   ]);
   player.gameboard.placeShip(player.battleship, false, [
     shipPositions[1],
-    generateRandomNumber(),
+    generateRandomNumber(7),
   ]);
   player.gameboard.placeShip(player.destroyer, false, [
     shipPositions[2],
-    generateRandomNumber(),
+    generateRandomNumber(8),
   ]);
   player.gameboard.placeShip(player.submarine, false, [
     shipPositions[3],
-    generateRandomNumber(),
+    generateRandomNumber(8),
   ]);
   player.gameboard.placeShip(player.boat, false, [
     shipPositions[4],
-    generateRandomNumber(),
+    generateRandomNumber(9),
   ]);
   return player;
 }
@@ -37,23 +37,23 @@ function initComputer() {
 
   computer.gameboard.placeShip(computer.carrier, false, [
     shipPositions[0],
-    generateRandomNumber(),
+    generateRandomNumber(6),
   ]);
   computer.gameboard.placeShip(computer.battleship, false, [
     shipPositions[1],
-    generateRandomNumber(),
+    generateRandomNumber(7),
   ]);
   computer.gameboard.placeShip(computer.destroyer, false, [
     shipPositions[2],
-    generateRandomNumber(),
+    generateRandomNumber(8),
   ]);
   computer.gameboard.placeShip(computer.submarine, false, [
     shipPositions[3],
-    generateRandomNumber(),
+    generateRandomNumber(8),
   ]);
   computer.gameboard.placeShip(computer.boat, false, [
     shipPositions[4],
-    generateRandomNumber(),
+    generateRandomNumber(9),
   ]);
   return computer;
 }

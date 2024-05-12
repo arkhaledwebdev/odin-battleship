@@ -40,6 +40,16 @@ class Player {
     this.attacks.push(randomIndex);
     gameBoard.receiveAttack(attackPosition);
   }
+
+  isGameOver() {
+    return (
+      this.carrier.isSunk &&
+      this.battleship.isSunk &&
+      this.destroyer.isSunk &&
+      this.submarine.isSunk &&
+      this.boat.isSunk
+    );
+  }
 }
 
 module.exports = Player;

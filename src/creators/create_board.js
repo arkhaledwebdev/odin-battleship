@@ -16,23 +16,23 @@ export default function createBoard() {
     if (player.gameboard.board[i].ship !== null) {
       playerNode.classList.add("has-ship");
     }
-    playerNode.addEventListener("click", () => {
-      if (!playerNode.classList.contains("selected")) {
-        playerNode.classList.add("selected");
-        if (player.gameboard.board[i].ship !== null) {
-          player.gameboard.board[i].isHit = true;
-          player.gameboard.board[i].ship.hit();
-          const playerHitNode = document.createElement("div");
-          playerHitNode.classList.add("player-hit-node");
-          playerNode.appendChild(playerHitNode);
-        } else {
-          player.gameboard.board[i].isMissed = true;
-          const playerMissedNode = document.createElement("div");
-          playerMissedNode.classList.add("player-missed-node");
-          playerNode.appendChild(playerMissedNode);
-        }
-      }
-    });
+    // playerNode.addEventListener("click", () => {
+    //   if (!playerNode.classList.contains("selected")) {
+    //     playerNode.classList.add("selected");
+    //     if (player.gameboard.board[i].ship !== null) {
+    //       player.gameboard.board[i].isHit = true;
+    //       player.gameboard.board[i].ship.hit();
+    //       const playerHitNode = document.createElement("div");
+    //       playerHitNode.classList.add("player-hit-node");
+    //       playerNode.appendChild(playerHitNode);
+    //     } else {
+    //       player.gameboard.board[i].isMissed = true;
+    //       const playerMissedNode = document.createElement("div");
+    //       playerMissedNode.classList.add("player-missed-node");
+    //       playerNode.appendChild(playerMissedNode);
+    //     }
+    //   }
+    // });
     computerNode.addEventListener("click", () => {
       if (!computerNode.classList.contains("selected")) {
         computerNode.classList.add("selected");

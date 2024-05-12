@@ -148,10 +148,13 @@ h1{
 
 .player-board-node,.computer-board-node{
   border: 1px solid black;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.computer-board-node{
+  cursor: pointer;
 }
 
 .has-ship{

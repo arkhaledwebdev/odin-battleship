@@ -39,3 +39,22 @@ test("Test attack with AI", () => {
     expect(playerOne.gameboard.board[index].isMissed).toEqual(true);
   }
 });
+
+test("test the isSunk function when all ships have been sunken", () => {
+  const player = new Player("P1");
+  player.carrier.isSunk = true;
+  player.battleship.isSunk = true;
+  player.boat.isSunk = true;
+  player.submarine.isSunk = true;
+  player.destroyer.isSunk = true;
+  expect(player.isGameOver()).toEqual(true);
+});
+
+test("test the isSunk function when not all ships have been sunken", () => {
+  const player = new Player("P1");
+  player.battleship.isSunk = true;
+  player.boat.isSunk = true;
+  player.submarine.isSunk = true;
+  player.destroyer.isSunk = true;
+  expect(player.isGameOver()).toEqual(false);
+});

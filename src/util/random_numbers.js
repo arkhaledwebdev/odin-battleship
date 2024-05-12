@@ -8,8 +8,8 @@ function generateRandomShipPositions() {
   return Array.from(numbers);
 }
 
-function generateRandomNumber() {
-  return Math.floor(Math.random() * 5);
+function generateRandomNumber(max) {
+  return Math.floor(Math.random() * max);
 }
 
 module.exports = { generateRandomShipPositions, generateRandomNumber };

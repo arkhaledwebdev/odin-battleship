@@ -1,10 +1,6 @@
-import { initComputer, initPlayer } from "../controllers/player_controller";
-
-export default function createBoard() {
+export default function createBoard(player, computer) {
   const playerBoard = document.getElementById("player-board");
   const computerBoard = document.getElementById("computer-board");
-  const player = initPlayer();
-  const computer = initComputer();
 
   for (let i = 0; i < 100; i += 1) {
     const playerNode = document.createElement("div");

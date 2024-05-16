@@ -161,8 +161,8 @@ h1{
   background-color: var(--accent-color);
 }
 
-.board-node:hover{
-  background-color: var(--surface-color);
+.computer-board-node:hover{
+  background-color: var(--secondary-color);
 }
 
 .player-missed-node{
@@ -205,6 +205,10 @@ h1{
   background-color: green;
   border-radius: 50%;
   display: inline-block;
+}
+
+.selected-turn{
+  border: 5px solid var(--main-color);
 }
 
 

@@ -11,10 +11,13 @@ let computer = initComputer();
 createBoard("player", player);
 createBoard("computer", computer);
 document.getElementById("computer-board").classList.add("selected-turn");
+const dialogResetButton = document.getElementById("dialog-reset");
 
 function gameOver() {
   const dialogText = document.getElementById("dialog-text");
-  dialogText.textContent = `player 1 has won`;
+  dialogText.textContent = computer.isGameOver()
+    ? "Player has won"
+    : "Computer has won";
   document.getElementById("game-over-dialog").showModal();
 }
 
@@ -65,13 +68,22 @@ function addClickListener() {
   });
 }
 
-addClickListener();
-
-const resetButton = document.getElementById("start-button");
-resetButton.addEventListener("click", () => {
+function resetGame() {
   player = initPlayer();
   computer = initComputer();
   createBoard("player", player);
   createBoard("computer", computer);
   addClickListener();
+}
+
+addClickListener();
+
+const resetButton = document.getElementById("start-button");
+resetButton.addEventListener("click", () => {
+  resetGame();
+});
+
+dialogResetButton.addEventListener("click", () => {
+  resetGame();
+  document.getElementById("game-over-dialog").close();
 });
